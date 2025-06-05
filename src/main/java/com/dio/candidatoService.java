@@ -3,6 +3,9 @@ package com.dio;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.random.RandomGenerator;
 
 public class candidatoService {
     public String analisarCandidato(candidato c) {
@@ -28,5 +31,18 @@ public class candidatoService {
             }
         }
         return aprov;
+    }
+
+    public List<candidato> tentarLigar(List<candidato> candi) {
+        List<candidato> cont = new ArrayList<>();
+        for (candidato c : candi) {
+            for (int i = 0; i < 2; i++) {
+                if (ThreadLocalRandom.current().nextInt(0, 3) == 1) {
+                    cont.add(c);
+                    break;
+                }
+            }
+        }
+        return cont;
     }
 }

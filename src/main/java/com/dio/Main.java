@@ -1,7 +1,5 @@
 package com.dio;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -16,7 +14,12 @@ public class Main {
 
         candidatoService cs = new candidatoService();
 
-        cs.candidatosAprovcados(list).stream()
+        List<candidato> aprovados = cs.candidatosAprovcados(list);
+        aprovados.forEach(System.out::println);
+
+        System.out.println("\nCANDIDATOS COMUNICADOS");
+
+        cs.tentarLigar(aprovados)
                 .forEach(System.out::println);
     }
 }
