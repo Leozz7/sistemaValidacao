@@ -1,6 +1,7 @@
 package com.dio;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class candidatoService {
@@ -18,7 +19,7 @@ public class candidatoService {
     public List<candidato> candidatosAprovcados(List<candidato> c) {
         List<candidato> aprov = new ArrayList<>();
 
-        for (candidato can : c) {
+        for (candidato can : c.stream().sorted(Comparator.comparing(candidato::getSalario)).toList()) {
             if (can.getSalario() <= 2000) {
                 aprov.add(can);
             }
