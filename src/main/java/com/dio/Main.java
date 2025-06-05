@@ -1,18 +1,23 @@
 package com.dio;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        candidato c1 = new candidato("Leo", 2200);
-        candidato c2 = new candidato("Ld", 1900);
-        candidato c3 = new candidato("Lois", 2000);
+        List<candidato> list = List.of(new candidato("Leandro"),
+                new candidato("Maria"), new candidato("Juliano"),
+                new candidato("Felipe"), new candidato("Mauricio"),
+                new candidato("Mariana"), new candidato("Julia"),
+                new candidato("Hneirque"), new candidato("Marcos"));
+
 
         candidatoService cs = new candidatoService();
 
-        System.out.println(cs.analisarCandidato(c1));
-        System.out.println(cs.analisarCandidato(c2));
-        System.out.println(cs.analisarCandidato(c3));
+        List<candidato> aprovados = cs.candidatosAprovcados(list);
+
+        aprovados.stream()
+                .forEach(System.out::println);
     }
 }

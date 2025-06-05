@@ -8,10 +8,10 @@ public class candidato {
     private String nome;
     private double salario;
 
-    public candidato(String nome, double salario) {
+    public candidato(String nome) {
         this.id = ThreadLocalRandom.current().nextLong();
         this.nome = nome;
-        this.salario = salario;
+        this.salario = ThreadLocalRandom.current().nextDouble(1800, 2200);
     }
 
     @Override
