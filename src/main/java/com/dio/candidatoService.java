@@ -22,7 +22,7 @@ public class candidatoService {
             if (can.getSalario() <= 2000) {
                 aprov.add(can);
             }
-            if (aprov.size() > 5) {
+            if (aprov.size() >= 5) {
                 return aprov;
             }
         }

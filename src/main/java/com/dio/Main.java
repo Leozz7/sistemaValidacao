@@ -10,14 +10,12 @@ public class Main {
                 new candidato("Maria"), new candidato("Juliano"),
                 new candidato("Felipe"), new candidato("Mauricio"),
                 new candidato("Mariana"), new candidato("Julia"),
-                new candidato("Hneirque"), new candidato("Marcos"));
+                new candidato("Henrique"), new candidato("Marcos"));
 
 
         candidatoService cs = new candidatoService();
 
-        List<candidato> aprovados = cs.candidatosAprovcados(list);
-
-        aprovados.stream()
+        cs.candidatosAprovcados(list).stream()
                 .forEach(System.out::println);
     }
 }
