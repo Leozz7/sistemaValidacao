@@ -3,12 +3,12 @@ package com.dio.atvd1;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class candidato {
+public class Candidato {
     private final Long id;
     private String nome;
     private double salario;
 
-    public candidato(String nome) {
+    public Candidato(String nome) {
         this.id = ThreadLocalRandom.current().nextLong();
         this.nome = nome;
         this.salario = ThreadLocalRandom.current().nextDouble(1800, 2200);
@@ -17,7 +17,7 @@ public class candidato {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        candidato candidato = (candidato) o;
+        Candidato candidato = (Candidato) o;
         return Objects.equals(id, candidato.id);
     }
 
