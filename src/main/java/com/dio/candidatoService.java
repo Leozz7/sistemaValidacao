@@ -20,17 +20,11 @@ public class candidatoService {
     }
 
     public List<candidato> candidatosAprovcados(List<candidato> c) {
-        List<candidato> aprov = new ArrayList<>();
-
-        for (candidato can : c.stream().sorted(Comparator.comparing(candidato::getSalario)).toList()) {
-            if (can.getSalario() <= 2000) {
-                aprov.add(can);
-            }
-            if (aprov.size() >= 5) {
-                return aprov;
-            }
-        }
-        return aprov;
+        return c.stream()
+                .sorted(Comparator.comparing(candidato::getSalario))
+                .filter(candidato -> candidato.getSalario() <= 2000)
+                .limit(5)
+                .toList();
     }
 
     public List<candidato> tentarLigar(List<candidato> candi) {
